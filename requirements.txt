@@ -1,0 +1,8 @@
+# Dependências diretas; versões exatas são registradas na seção 8 do notebook.
+pandas
+numpy
+duckdb
+matplotlib
+seaborn
+scipy
+ipython
