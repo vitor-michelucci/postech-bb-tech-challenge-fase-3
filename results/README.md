@@ -19,7 +19,7 @@ Base: 10.000 clientes, 2.037 churn, 7.963 retidos (20,37%).
 Investigar motivos de saída na Alemanha, nos grupos de 40–59 anos e entre clientes inativos com um produto. Avaliar a composição dos pequenos grupos com três e quatro produtos antes de generalizar. Não usar gênero como regra discriminatória. Associações não demonstram causalidade.
 
 ## Auditoria
-A execução reportada do notebook de auditoria apresentou 16/16 consultas equivalentes e nenhuma divergência. Os [CSV publicados](tables/) e [registros de auditoria](audit/) são reconstruções dos resultados reportados; não constituem cópias byte a byte das exportações originais. Utilize os arquivos originais para repetir a auditoria automatizada.
+A execução reportada do notebook de auditoria apresentou 16/16 consultas equivalentes e nenhuma divergência. Os [CSV publicados](tables/) e [registros de auditoria](audit/) foram aceitos para a entrega ao grupo após conferência parcial de 10 dos 18 arquivos com os conteúdos de referência. A identidade integral com as exportações originais não foi certificada. Utilize os arquivos originais para repetir a auditoria automatizada.
 
 ## Limitações
 Sem período de observação ou moeda especificados. Testes exploratórios sem ajuste de multiplicidade; grupos pequenos exigem cautela.
