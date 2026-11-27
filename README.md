@@ -39,4 +39,4 @@ Analisar churn bancário com SQL e Python e reproduzir as análises na AWS. Proj
 Análise exploratória bivariada, sem inferência causal. Período e moeda não informados; segmentos pequenos e testes sem ajuste por multiplicidade. Não usar associações como regras automáticas de decisão.
 
 ## Publicação
-O repositório é público. Não inclui o CSV individual. Os CSVs publicados na etapa 8L-B foram reconstruídos a partir dos resultados reportados, não transferidos byte a byte dos arquivos originais; para reprodução automatizada, utilize as exportações originais do Athena. As 11 imagens de evidências foram localizadas no repositório.
+O repositório é público. Não inclui o CSV individual. Os CSVs agregados publicados foram aceitos para a entrega ao grupo após conferência parcial de 10 dos 18 arquivos com os conteúdos de referência. Não foi certificada identidade integral com as exportações originais; para reprodução automatizada, utilize as exportações originais do Athena. As 11 imagens de evidências foram localizadas no repositório.
