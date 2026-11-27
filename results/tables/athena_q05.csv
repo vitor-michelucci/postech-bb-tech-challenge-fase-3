@@ -1,0 +1,6 @@
+"faixa_etaria","total_clientes","clientes_churn","clientes_retidos","taxa_churn_pct"
+"Até 29 anos","1641","124","1517","7.56"
+"30 a 39 anos","4346","473","3873","10.88"
+"40 a 49 anos","2618","806","1812","30.79"
+"50 a 59 anos","869","487","382","56.04"
+"60 anos ou mais","526","147","379","27.95"
