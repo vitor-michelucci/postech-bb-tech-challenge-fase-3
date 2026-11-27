@@ -1,5 +1,7 @@
 # Implementação AWS
 
+**[Guia completo passo a passo — da criação da conta aos resultados](GUIA_PASSO_A_PASSO.md)**
+
 ## Ambiente implementado
 - Região: us-east-2 (Ohio).
 - Amazon S3: bucket privado, bloqueio de acesso público, criptografia SSE-S3.
