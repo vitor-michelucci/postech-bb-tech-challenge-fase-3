@@ -1,11 +1,24 @@
-# Implementação AWS — pendente
-1. Criar conta, proteger usuário raiz com MFA, configurar acesso de menor privilégio e alertas de orçamento (alertas não são limite rígido).
-2. Definir região e bucket privado com bloqueio de acesso público e criptografia.
-3. Enviar CSV para data/raw/; manter resultados do Athena em prefixo separado.
-4. Configurar Athena engine 3, catálogo AwsDataCatalog e localização dos resultados.
-5. Executar sql/01_create_database.sql e sql/02_create_table.sql após substituir <NOME_DO_BUCKET>.
-6. Executar cada instrução de sql/05_validation_queries.sql separadamente; depois consultas 03 e 04.
-7. Comparar resultados com Colab, registrar evidências sem dados individuais ou segredos.
-8. Revisar custos e remover recursos desnecessários após entrega.
+# Implementação AWS
 
-Banco: bank_churn_db. Tabela: customers. Nenhum recurso AWS foi criado até esta etapa.
+## Ambiente implementado
+- Região: us-east-2 (Ohio).
+- Amazon S3: bucket privado, bloqueio de acesso público, criptografia SSE-S3.
+- Prefixos: data/ (CSV) e athena-results/ (resultados).
+- Athena: workgroup primary, catálogo AwsDataCatalog.
+- Banco: bank_churn_db; tabela externa: customers.
+- Orçamento configurado: US$ 1 (alerta, não limite rígido).
+
+## Reprodução
+1. Configure conta, MFA, permissões mínimas e orçamento.
+2. Crie bucket privado e os dois prefixos.
+3. Envie o CSV original para data/.
+4. Configure a localização de resultados do Athena em athena-results/.
+5. Execute os scripts 01 e 02 em [sql/](../sql/), adaptando o nome do bucket e a localização ao ambiente.
+6. Execute as instruções de validação do script 05 e as consultas dos scripts 03 e 04 separadamente.
+7. Exporte os 16 resultados e execute o notebook de reconciliação.
+
+## Validação reportada
+10.000 registros e clientes distintos, 2.037 churn, 7.963 retidos, 20,37% de churn. Sem nulos, IDs duplicados ou valores binários inválidos. As 16 consultas apresentaram equivalência com DuckDB na execução reportada.
+
+## Encerramento
+Revise custos e remova recursos desnecessários após a entrega. Não publique credenciais ou dados individuais. Consulte o [índice de evidências](../docs/README.md).
