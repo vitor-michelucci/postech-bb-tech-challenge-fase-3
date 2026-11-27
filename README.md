@@ -1,31 +1,37 @@
 # POSTECH – BB | Tech Challenge – Fase 3
 
 ## Objetivo
-Analisar churn bancário com SQL e Python e reproduzir as análises na AWS (Amazon S3 e Athena). Projeto acadêmico, sem dados de clientes do Banco do Brasil.
+Analisar churn bancário com SQL e Python e reproduzir as análises na AWS. Projeto acadêmico, sem dados internos do Banco do Brasil.
 
 ## Arquitetura
-CSV → Pandas → DuckDB → SQL e Python (Colab) → validação local.
-CSV → S3 → Athena / AWS Glue Data Catalog → SQL → reconciliação (pendente).
+- CSV → Pandas → DuckDB → SQL/Python no Colab.
+- CSV → Amazon S3 → AWS Glue Data Catalog → Amazon Athena → resultados agregados.
+- Resultados Athena × DuckDB → reconciliação das 16 consultas.
 
-## Execução local
-Abra [o notebook no Colab](https://colab.research.google.com/github/vitor-michelucci/postech-bb-tech-challenge-fase-3/blob/main/notebooks/01_analise_churn_colab.ipynb), execute todas as células em ordem e selecione o CSV original quando solicitado. A auditoria deve terminar sem erros. O notebook registra versões das bibliotecas ao final. O CSV não é distribuído neste repositório.
+## Indicadores
+| Indicador | Valor |
+|---|---:|
+| Clientes | 10.000 |
+| Churn | 2.037 |
+| Retidos | 7.963 |
+| Taxa de churn | 20,37% |
+| Consultas reconciliadas (execução reportada) | 16/16 |
 
-## Resultados de referência
-10.000 clientes, 2.037 churn, 7.963 retidos, taxa de 20,37%. Consulte [resultados](results/README.md) e o notebook para as dez perguntas, gráficos e testes estatísticos.
+## Reprodução
+1. Abra o [notebook de análise](https://colab.research.google.com/github/vitor-michelucci/postech-bb-tech-challenge-fase-3/blob/main/notebooks/01_analise_churn_colab.ipynb) e carregue o CSV original.
+2. Siga o [roteiro AWS](aws/README.md) e execute os [scripts SQL](sql/).
+3. Exporte os resultados originais do Athena e execute o [notebook de auditoria](https://colab.research.google.com/github/vitor-michelucci/postech-bb-tech-challenge-fase-3/blob/main/notebooks/02_auditoria_athena_duckdb.ipynb) com o CSV e o ZIP de resultados.
+4. Confira os relatórios gerados. A execução reportada apresentou 100% de equivalência.
 
-## SQL e AWS
-Os cinco scripts em [sql/](sql/) criam banco e tabela externa, respondem às perguntas e verificam a integridade. Consulte [aws/README.md](aws/README.md). Publicação dos scripts concluída; execução na AWS e reconciliação ainda pendentes.
-
-## Estrutura
-- notebooks/: análise completa e auditoria.
-- sql/: DDL, consultas analíticas, complementares e validação.
-- data/: dicionário e instruções do dataset.
-- results/: síntese e futuras tabelas e gráficos agregados.
-- aws/: roteiro e registro da implementação.
-- docs/: evidências, apresentação e vídeo (pendentes).
+## Navegação
+- [Resultados e interpretações](results/README.md)
+- [Tabelas agregadas](results/tables/)
+- [Registros de auditoria](results/audit/)
+- [Documentação e evidências](docs/README.md)
+- [Implementação AWS](aws/README.md)
 
 ## Limitações
-Análise exploratória bivariada, sem inferência causal. Período e moeda não informados; segmentos pequenos e testes sem ajuste por multiplicidade. Recomendações são hipóteses a investigar, não regras automáticas de decisão.
+Análise exploratória bivariada, sem inferência causal. Período e moeda não informados; segmentos pequenos e testes sem ajuste por multiplicidade. Não usar associações como regras automáticas de decisão.
 
-## Segurança
-Não publicar dados individuais, credenciais, chaves ou informações internas. O repositório é público.
+## Publicação
+O repositório é público. Não inclui o CSV individual. Os CSVs publicados na etapa 8L-B foram reconstruídos a partir dos resultados reportados, não transferidos byte a byte dos arquivos originais; para reprodução automatizada, utilize as exportações originais do Athena. A presença das imagens no repositório ainda deve ser confirmada.
