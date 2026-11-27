@@ -29,6 +29,7 @@ Analisar churn bancário com SQL e Python e reproduzir as análises na AWS. Proj
 - Vídeo demonstrativo: pendente para conclusão pelo grupo.
 
 ## Navegação
+- [Guia passo a passo AWS — da criação da conta aos resultados](aws/GUIA_PASSO_A_PASSO.md)
 - [Resultados e interpretações](results/README.md)
 - [Tabelas agregadas](results/tables/)
 - [Registros de auditoria](results/audit/)
